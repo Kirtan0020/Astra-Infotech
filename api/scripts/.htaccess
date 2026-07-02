@@ -1,0 +1,3 @@
+# CLI-only maintenance scripts (seed.php etc.) — never reachable over HTTP,
+# on top of the php_sapi_name() guard already inside each script.
+Require all denied

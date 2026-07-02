@@ -1,0 +1,90 @@
+// Fixed set of section "templates" the admin can add to a page — each maps to
+// an existing designed component (see src/content/SectionRenderer.jsx). This
+// is the "template-based" flexibility model: pick a type, fill in its fields,
+// rather than a free-form drag-and-drop builder.
+export const SECTION_TYPE_OPTIONS = [
+  {
+    type: 'hero',
+    label: 'Hero',
+    description: 'Page intro — eyebrow, heading, subtext, CTA buttons',
+    data: { style: 'blob', eyebrow: 'Eyebrow', heading: 'A **bold** heading', subtext: 'Supporting subtext.' },
+    items: [],
+  },
+  {
+    type: 'stats',
+    label: 'Stats bar',
+    description: 'A row of animated counters',
+    data: {},
+    items: [{ value: 100, suffix: '+', label: 'Stat label' }],
+  },
+  {
+    type: 'services',
+    label: 'Services grid',
+    description: 'Icon cards with title, description, tags',
+    data: { eyebrow: 'Eyebrow', heading: 'Heading' },
+    items: [{ title: 'Service', desc: 'Description', tags: ['Tag'], features: ['Feature'], icon: 'sparkles' }],
+  },
+  {
+    type: 'process',
+    label: 'Process steps',
+    description: 'Numbered steps with icon badges',
+    data: { eyebrow: 'Eyebrow', heading: 'Heading' },
+    items: [{ step: '01', title: 'Step', desc: 'Description', icon: 'search' }],
+  },
+  {
+    type: 'work',
+    label: 'Work / portfolio grid',
+    description: 'Project cards with image, category, tags',
+    data: { eyebrow: 'Eyebrow', heading: 'Heading' },
+    items: [{ title: 'Project', category: 'Category', image: '', url: '', desc: 'Description', tags: ['Tag'] }],
+  },
+  {
+    type: 'testimonials',
+    label: 'Testimonials',
+    description: 'Rotating quote carousel',
+    data: { eyebrow: 'Eyebrow', heading: 'Heading' },
+    items: [{ quote: 'Quote', name: 'Name', role: 'Role' }],
+  },
+  {
+    type: 'faq',
+    label: 'FAQ accordion',
+    description: 'Expandable question/answer list',
+    data: { eyebrow: 'Eyebrow', heading: 'Heading', subtext: '' },
+    items: [{ q: 'Question?', a: 'Answer.' }],
+  },
+  {
+    type: 'values',
+    label: 'Feature grid',
+    description: 'Two-column cards (values, culture, etc.)',
+    data: { eyebrow: 'Eyebrow', heading: 'Heading' },
+    items: [{ title: 'Title', desc: 'Description' }],
+  },
+  {
+    type: 'clients',
+    label: 'Trusted-by logos',
+    description: 'Row of client/partner logos',
+    data: {},
+    items: [{ name: 'Client', logo: '', url: '' }],
+  },
+  {
+    type: 'cta',
+    label: 'CTA banner',
+    description: 'Gradient call-to-action banner',
+    data: { heading: 'Heading', subtext: 'Subtext', buttonLabel: 'Button', buttonHref: '/contact' },
+    items: [],
+  },
+  {
+    type: 'team',
+    label: 'Team members',
+    description: 'Photo + name + role cards',
+    data: { eyebrow: '', heading: '' },
+    items: [{ name: 'Name', role: 'Role', photo: '' }],
+  },
+  {
+    type: 'richtext',
+    label: 'Rich text',
+    description: 'Free-form sanitized HTML block',
+    data: { eyebrow: '', heading: '', html: '<p>Text…</p>' },
+    items: [],
+  },
+]

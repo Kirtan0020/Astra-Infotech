@@ -1,0 +1,8 @@
+# Uploaded media only — never execute anything here, even if a malicious
+# file somehow got past the upload MIME/extension checks.
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
+<FilesMatch "\.(php|php\d?|phtml|pl|py|cgi|sh)$">
+  Require all denied
+</FilesMatch>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://astrainfotech.net/sitemap.xml

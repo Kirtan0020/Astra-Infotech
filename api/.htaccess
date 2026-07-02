@@ -1,0 +1,6 @@
+# Only api/public/*.php and api/admin/*.php are meant to be hit directly.
+# These shared files just define functions/return config arrays (harmless
+# even if requested directly today), but deny them explicitly anyway.
+<FilesMatch "^(db|auth|response|config|config\.example|config\.production)\.php$">
+  Require all denied
+</FilesMatch>
