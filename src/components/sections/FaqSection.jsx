@@ -7,7 +7,7 @@ export default function FaqSection({ data = {}, items = [] }) {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <div className="container-px grid gap-12 md:grid-cols-[0.8fr_1.2fr]">
+    <div className="container-px grid gap-16 md:grid-cols-[0.8fr_1.2fr] md:gap-12">
       <Reveal>
         {data.eyebrow && <span className="section-eyebrow">{data.eyebrow}</span>}
         <h2 className="max-w-sm font-display text-3xl text-[var(--color-text)] md:text-4xl">{data.heading}</h2>

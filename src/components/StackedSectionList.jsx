@@ -19,9 +19,9 @@ export default function StackedSectionList({ sections }) {
           key={section.id ?? i}
           id={ANCHOR_IDS.has(section.type) ? section.type : undefined}
           style={{ '--stack-top': `${i * 22}px`, '--stack-z': 10 + i * 10 }}
-          className={`stack-section flex min-h-0 flex-col justify-center overflow-hidden rounded-t-[40px] border-t border-[var(--color-text)]/10 py-16 shadow-[0_-30px_60px_-20px_rgba(0,0,0,0.6)] md:min-h-[92vh] md:py-28 ${
+          className={`stack-section flex min-h-0 flex-col justify-center overflow-hidden rounded-t-[40px] border-t border-[var(--color-text)]/10 py-24 shadow-[0_-30px_60px_-20px_rgba(0,0,0,0.6)] md:min-h-[92vh] md:py-28 ${
             i % 2 === 0 ? 'bg-[var(--color-bg-soft)]' : 'bg-[var(--color-bg-alt)]'
-          } ${section.type === 'testimonials' ? '!py-14 md:!py-28' : ''}`}
+          } ${section.type === 'testimonials' ? '!py-20 md:!py-28' : ''}`}
         >
           {section.type !== 'cta' && (
             <>

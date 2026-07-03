@@ -12,7 +12,7 @@ export default function TestimonialsSection({ data = {}, items = [] }) {
         </h2>
       </Reveal>
 
-      <Reveal delay={0.1} className="mt-6 md:mt-14">
+      <Reveal delay={0.1} className="mt-10 md:mt-14">
         <TestimonialCarousel items={items} />
       </Reveal>
     </div>

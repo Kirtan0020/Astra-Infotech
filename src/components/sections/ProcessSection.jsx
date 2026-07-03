@@ -45,7 +45,7 @@ export default function ProcessSection({ data = {}, items = [] }) {
 
       <div
         ref={trackRef}
-        className="no-scrollbar mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 md:flex md:snap-x md:snap-mandatory md:overflow-x-auto md:scroll-smooth md:pb-4"
+        className="no-scrollbar mt-16 grid grid-cols-1 gap-7 sm:grid-cols-2 md:mt-14 md:flex md:snap-x md:snap-mandatory md:gap-5 md:overflow-x-auto md:scroll-smooth md:pb-4"
       >
         {items.map((item, i) => {
           const Icon = getIcon(item.icon)
