@@ -17,9 +17,9 @@ export default function Footer() {
     <footer id="footer" className="relative overflow-hidden border-t border-[var(--color-text)]/10 bg-[var(--color-bg)] pt-12">
       <FloatingParticles color="bg-violet-400/30" />
       <div className="container-px">
-        <div className="grid gap-8 pb-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-8 pb-10 text-center md:grid-cols-[1.4fr_1fr_1fr_1fr] md:text-left">
           <div>
-            <div className="mb-6 flex items-center gap-2.5">
+            <div className="mb-6 flex items-center justify-center gap-2.5 md:justify-start">
               <img src={settings.logo_path} alt={settings.site_name} className="h-9 w-9" />
               <span className="font-display text-base text-[var(--color-text)]">{settings.site_name}</span>
             </div>
@@ -43,7 +43,7 @@ export default function Footer() {
               {settings.phone}
             </a>
 
-            <div className="mt-5 flex gap-3">
+            <div className="mt-5 flex justify-center gap-3 md:justify-start">
               {socialIcons
                 .filter(({ key }) => settings[key])
                 .map(({ Icon, key }) => (
