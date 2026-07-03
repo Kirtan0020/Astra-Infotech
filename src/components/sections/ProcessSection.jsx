@@ -6,9 +6,9 @@ import TiltCard from '../TiltCard.jsx'
 import { getIcon } from '../../content/iconRegistry.js'
 import { useTrackWheelScroll, makeTrackScroller } from '../../content/useTrackWheelScroll.js'
 
-// Horizontal snap-scroll track (same pattern as Services/Work) instead of a
-// static grid — on mobile a 4-card grid meant a very long section to scroll
-// past; a track lets you swipe through the steps instead.
+// Horizontal snap-scroll track on desktop (same pattern as Services/Work);
+// plain grid below md — nesting a horizontal snap-scroll track inside a
+// vertically-scrolling page fought touch scrolling on phones.
 export default function ProcessSection({ data = {}, items = [] }) {
   const trackRef = useRef(null)
   const scroll = makeTrackScroller(trackRef)
@@ -22,7 +22,7 @@ export default function ProcessSection({ data = {}, items = [] }) {
           <h2 className="max-w-xl font-display text-3xl text-[var(--color-text)] md:text-5xl">{data.heading}</h2>
         </div>
         {items.length > 1 && (
-          <div className="hidden items-center gap-3 sm:flex">
+          <div className="hidden items-center gap-3 md:flex">
             <button
               type="button"
               onClick={() => scroll(-1)}
@@ -45,7 +45,7 @@ export default function ProcessSection({ data = {}, items = [] }) {
 
       <div
         ref={trackRef}
-        className="no-scrollbar mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4"
+        className="no-scrollbar mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 md:flex md:snap-x md:snap-mandatory md:overflow-x-auto md:scroll-smooth md:pb-4"
       >
         {items.map((item, i) => {
           const Icon = getIcon(item.icon)
@@ -53,7 +53,7 @@ export default function ProcessSection({ data = {}, items = [] }) {
             <Reveal
               key={item.step}
               delay={i * 0.08}
-              className="w-[85%] shrink-0 snap-start sm:w-[calc((100%-20px)/2)] lg:w-[calc((100%-60px)/4)]"
+              className="md:w-[85%] md:shrink-0 md:snap-start lg:w-[calc((100%-20px)/2)] xl:w-[calc((100%-60px)/4)]"
             >
               <TiltCard>
                 <div className="relative h-full rounded-3xl border border-[var(--color-text)]/10 bg-[var(--color-bg)] !p-9">

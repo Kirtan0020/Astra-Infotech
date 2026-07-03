@@ -22,7 +22,18 @@ export default function Navbar() {
     const onScroll = () => {
       const y = window.scrollY
       setScrolled(y > 12)
-      if (!open) setHidden(y > lastY && y > 120)
+      if (!open) {
+        // Late-loading images/fonts near the footer can shrink the page's
+        // scrollable height by a few px right as you hit bottom, which the
+        // browser reports as a genuine scroll-up event — that used to flip
+        // the navbar back to visible and cover the footer. Once we're
+        // essentially at the bottom, keep it hidden regardless of that
+        // jitter; otherwise fall back to normal scroll-direction behavior.
+        const atBottom = y + window.innerHeight >= document.documentElement.scrollHeight - 4
+        if (atBottom) setHidden(true)
+        else if (y > lastY && y > 120) setHidden(true)
+        else if (y < lastY) setHidden(false)
+      }
       lastY = y
     }
     window.addEventListener('scroll', onScroll)

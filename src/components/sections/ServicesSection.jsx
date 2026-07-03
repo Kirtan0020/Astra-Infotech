@@ -7,9 +7,11 @@ import TiltCard from '../TiltCard.jsx'
 import { getIcon } from '../../content/iconRegistry.js'
 import { useTrackWheelScroll, makeTrackScroller } from '../../content/useTrackWheelScroll.js'
 
-// `stacked` (true on Home's sticky layout) uses the horizontal scroll track
-// with the pulsing icon-badge + watermark treatment; other pages render a
-// plain static grid with the full feature list and tags.
+// `stacked` (true on Home's sticky layout) uses the pulsing icon-badge +
+// watermark card treatment; other pages render a plain static grid with the
+// full feature list and tags. The stacked cards' horizontal snap-scroll is
+// md+ only (plain grid below that) — nesting a horizontal snap-scroll track
+// inside a vertically-scrolling page fought touch scrolling on phones.
 export default function ServicesSection({ data = {}, items = [], stacked = false }) {
   const trackRef = useRef(null)
   const scroll = makeTrackScroller(trackRef)
@@ -32,7 +34,7 @@ export default function ServicesSection({ data = {}, items = [], stacked = false
                 <button
                   type="button"
                   onClick={() => scroll(-1)}
-                  className="rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)]"
+                  className="hidden rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)] md:block"
                   aria-label="Scroll services left"
                 >
                   <HiChevronLeft size={20} />
@@ -40,7 +42,7 @@ export default function ServicesSection({ data = {}, items = [], stacked = false
                 <button
                   type="button"
                   onClick={() => scroll(1)}
-                  className="rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)]"
+                  className="hidden rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)] md:block"
                   aria-label="Scroll services right"
                 >
                   <HiChevronRight size={20} />
@@ -54,7 +56,7 @@ export default function ServicesSection({ data = {}, items = [], stacked = false
       {stacked ? (
         <div
           ref={trackRef}
-          className="no-scrollbar mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4"
+          className="no-scrollbar mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 md:flex md:snap-x md:snap-mandatory md:overflow-x-auto md:scroll-smooth md:pb-4"
         >
           {items.map((service, i) => {
             const Icon = getIcon(service.icon)
@@ -62,7 +64,7 @@ export default function ServicesSection({ data = {}, items = [], stacked = false
               <Reveal
                 key={service.title}
                 delay={i * 0.08}
-                className="w-[85%] shrink-0 snap-start sm:w-[calc((100%-20px)/2)]"
+                className="md:w-[85%] md:shrink-0 md:snap-start lg:w-[calc((100%-20px)/2)]"
               >
                 <TiltCard>
                   <div className="surface-card relative h-full !p-9 transition-colors group-hover:border-violet-500/40">

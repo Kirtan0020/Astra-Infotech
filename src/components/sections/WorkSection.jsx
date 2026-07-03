@@ -5,6 +5,12 @@ import Reveal from '../Reveal.jsx'
 import TiltCard from '../TiltCard.jsx'
 import { useTrackWheelScroll, makeTrackScroller } from '../../content/useTrackWheelScroll.js'
 
+// `stacked` still picks which card design to use (Home's dark-overlay-caption
+// style vs the standalone Work page's image-plus-content style) — but the
+// horizontal snap-scroll behavior itself is md+ only now (plain grid below
+// that), via responsive classes rather than a JS breakpoint check. Nesting a
+// horizontal snap-scroll track inside a vertically-scrolling page fought
+// touch scrolling on phones.
 export default function WorkSection({ data = {}, items = [], stacked = false }) {
   const trackRef = useRef(null)
   const scroll = makeTrackScroller(trackRef)
@@ -27,7 +33,7 @@ export default function WorkSection({ data = {}, items = [], stacked = false }) 
                 <button
                   type="button"
                   onClick={() => scroll(-1)}
-                  className="rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)]"
+                  className="hidden rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)] md:block"
                   aria-label="Scroll work left"
                 >
                   <HiChevronLeft size={20} />
@@ -35,7 +41,7 @@ export default function WorkSection({ data = {}, items = [], stacked = false }) 
                 <button
                   type="button"
                   onClick={() => scroll(1)}
-                  className="rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)]"
+                  className="hidden rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)] md:block"
                   aria-label="Scroll work right"
                 >
                   <HiChevronRight size={20} />
@@ -49,13 +55,13 @@ export default function WorkSection({ data = {}, items = [], stacked = false }) 
       {stacked ? (
         <div
           ref={trackRef}
-          className="no-scrollbar mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4"
+          className="no-scrollbar mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 md:flex md:snap-x md:snap-mandatory md:overflow-x-auto md:scroll-smooth md:pb-4"
         >
           {items.map((project, i) => (
             <Reveal
               key={project.title}
               delay={i * 0.08}
-              className="w-[65%] shrink-0 snap-start sm:w-[calc((100%-40px)/3)]"
+              className="md:w-[65%] md:shrink-0 md:snap-start lg:w-[calc((100%-40px)/3)]"
             >
               <TiltCard>
                 <a
