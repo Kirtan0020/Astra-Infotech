@@ -24,7 +24,7 @@ export default function Footer() {
               <span className="font-display text-base text-[var(--color-text)]">{settings.site_name}</span>
             </div>
 
-            <h3 className="font-display text-lg text-[var(--color-text)] md:text-xl">Studio</h3>
+            <h3 className="font-display text-lg text-[var(--color-text)] md:text-xl">Location</h3>
             <p className="mt-2 text-sm text-[var(--color-text)]/60">{settings.location}</p>
 
             <h3 className="mt-6 font-display text-lg text-[var(--color-text)] md:text-xl">

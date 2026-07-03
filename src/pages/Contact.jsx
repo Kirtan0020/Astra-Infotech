@@ -153,7 +153,7 @@ function ContactInfo() {
         {settings.phone}
       </a>
 
-      <h3 className="mt-6 font-display text-xl text-[var(--color-text)]">Studio</h3>
+      <h3 className="mt-6 font-display text-xl text-[var(--color-text)]">Location</h3>
       <p className="mt-2 text-sm text-[var(--color-text)]/60">{settings.location}</p>
 
       <div className="mt-auto flex gap-3 pt-8">

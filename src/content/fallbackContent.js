@@ -75,9 +75,9 @@ export const fallbackPages = {
     title: 'Home',
     layout: 'stacked',
     meta: {
-      title: 'Astra Infotech — Design & Development Studio',
+      title: 'Astra Infotech: Design & Development',
       description:
-        'Astra Infotech is a development & design studio — we partner with founders and teams to turn ideas into fast, beautiful websites, apps, and brands.',
+        'Astra Infotech is a development & design team that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands.',
       path: '/',
     },
     sections: [
@@ -88,7 +88,7 @@ export const fallbackPages = {
           badgeLabel: 'Available for new projects',
           heading: 'We design & build\n**digital products**\nthat grow.',
           subtext:
-            'Astra Infotech is a development & design studio — we partner with founders and teams to turn ideas into fast, beautiful websites, apps, and brands.',
+            'Astra Infotech is a development & design team that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands.',
           primaryCtaLabel: 'Start a project',
           primaryCtaHref: '/contact',
           secondaryCtaLabel: 'View our work',
@@ -205,7 +205,7 @@ export const fallbackPages = {
     meta: {
       title: 'About Us — Our Story, Mission & Team | Astra Infotech',
       description:
-        'Learn about Astra Infotech: our mission, vision, and the team behind the studio building bold digital products for founders and teams worldwide.',
+        'Learn about Astra Infotech: our mission, vision, and the team building bold digital products for founders and teams worldwide.',
       path: '/about',
     },
     sections: [
@@ -215,9 +215,9 @@ export const fallbackPages = {
           style: 'blob',
           particleColor: 'bg-blue-400/40',
           eyebrow: 'About us',
-          heading: 'A studio built around **good work**, not busywork.',
+          heading: 'A team built around **good work**, not busywork.',
           subtext:
-            'Astra Infotech is a development & design studio — we partner with founders and teams to turn ideas into fast, beautiful websites, apps, and brands. Small team, senior craft, direct communication.',
+            'Astra Infotech is a development & design team that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands. Small team, senior craft, direct communication.',
         },
         items: [],
       },
@@ -244,7 +244,7 @@ export const fallbackPages = {
     meta: {
       title: 'Our Team — Meet Astra Infotech | Astra Infotech',
       description:
-        'Meet the people behind Astra Infotech — the designers and developers building bold digital products for founders and teams worldwide.',
+        'Meet the people behind Astra Infotech: the designers and developers building bold digital products for founders and teams worldwide.',
       path: '/team',
     },
     sections: [
@@ -256,7 +256,7 @@ export const fallbackPages = {
           eyebrow: 'Our team',
           heading: 'Coming **soon**.',
           subtext:
-            "We're putting together a proper introduction to the people behind Astra Infotech. Check back soon — in the meantime, learn more about the studio on our About page.",
+            "We're putting together a proper introduction to the people behind Astra Infotech. Check back soon. In the meantime, learn more about us on our About page.",
           primaryCtaLabel: 'Back to About',
           primaryCtaHref: '/about',
         },
@@ -284,7 +284,7 @@ export const fallbackPages = {
           eyebrow: 'Careers',
           heading: 'Build great work **with us**.',
           subtext:
-            "We're a small studio that cares about craft over headcount. If you'd rather do great work for real clients than sit in meetings about work, you'll probably like it here.",
+            "We're a small team that cares about craft over headcount. If you'd rather do great work for real clients than sit in meetings about work, you'll probably like it here.",
         },
         items: [],
       },
