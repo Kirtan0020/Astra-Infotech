@@ -30,8 +30,8 @@ const items = [...stack, ...stack]
 export default function TechMarquee() {
   return (
     <div className="relative h-80 overflow-hidden bg-[var(--color-bg)] md:h-72">
-      <MarqueeRibbon rotate={28} rotateMd={-6} tint="from-blue-500/15 via-blue-500/5" />
-      <MarqueeRibbon rotate={-28} rotateMd={6} reverse tint="from-violet-500/15 via-violet-500/5" />
+      <MarqueeRibbon rotate={-40} rotateMd={-6} tint="from-blue-500/15 via-blue-500/5" />
+      <MarqueeRibbon rotate={30} rotateMd={6} reverse tint="from-violet-500/15 via-violet-500/5" />
     </div>
   )
 }
