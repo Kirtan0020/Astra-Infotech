@@ -59,6 +59,19 @@
     }
   }
 
+  /* TechMarquee's crossed ribbons: mobile uses a steeper rotation
+     (--ribbon-rotate) than desktop (--ribbon-rotate-md) so the crossing
+     zone stays a small notch near the center instead of overlapping the
+     whole narrow width. */
+  .marquee-ribbon {
+    transform: translateY(-50%) rotate(var(--ribbon-rotate, 0deg));
+  }
+  @media (min-width: 768px) {
+    .marquee-ribbon {
+      transform: translateY(-50%) rotate(var(--ribbon-rotate-md, 0deg));
+    }
+  }
+
   body {
     margin: 0;
     background: var(--color-bg);

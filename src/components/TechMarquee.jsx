@@ -22,71 +22,42 @@ const stack = [
 
 const items = [...stack, ...stack]
 
-// The rotated, crossed-ribbon effect only reads cleanly with the extra
-// vertical room desktop viewports have — on narrow mobile widths the two
-// bands overlapped into a cramped, hard-to-read mess. Mobile gets two
-// plain, non-overlapping horizontal rows instead; desktop keeps the
-// original crossed ribbons untouched.
+// Crossed ribbons on both breakpoints, but mobile uses a steeper rotation
+// and thinner bars — at the desktop angle/thickness, the narrow mobile
+// width made the two bands overlap across nearly the whole ribbon instead
+// of a small crossing near the center. `--ribbon-rotate` is set per
+// breakpoint via CSS (see .marquee-ribbon in index.css).
 export default function TechMarquee() {
   return (
-    <div className="relative overflow-hidden bg-[var(--color-bg)]">
-      <div className="flex flex-col gap-3 py-8 md:hidden">
-        <MarqueeRow reverse={false} tint="from-blue-500/15 via-blue-500/5" />
-        <MarqueeRow reverse tint="from-violet-500/15 via-violet-500/5" />
-      </div>
-
-      <div className="relative hidden md:block md:h-72">
-        <MarqueeRibbon rotate={-6} tint="from-blue-500/15 via-blue-500/5" />
-        <MarqueeRibbon rotate={6} reverse tint="from-violet-500/15 via-violet-500/5" />
-      </div>
+    <div className="relative h-64 overflow-hidden bg-[var(--color-bg)] md:h-72">
+      <MarqueeRibbon rotate={22} rotateMd={-6} tint="from-blue-500/15 via-blue-500/5" />
+      <MarqueeRibbon rotate={-22} rotateMd={6} reverse tint="from-violet-500/15 via-violet-500/5" />
     </div>
   )
 }
 
-function MarqueeRow({ reverse = false, tint }) {
-  return (
-    <div
-      className={`overflow-hidden bg-gradient-to-r ${tint} to-transparent bg-[var(--color-text)]/[0.03] py-4 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.6)] backdrop-blur-sm`}
-    >
-      <div
-        className={`pause-on-hover flex w-max gap-10 ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}
-      >
-        {items.map((item, i) => (
-          <div
-            key={i}
-            className="flex items-center gap-2 whitespace-nowrap text-[var(--color-text)]/50 transition-colors hover:text-[var(--color-text)]"
-          >
-            <item.icon size={22} />
-            <span className="text-sm font-medium">{item.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function MarqueeRibbon({ rotate, reverse = false, tint }) {
+function MarqueeRibbon({ rotate, rotateMd, reverse = false, tint }) {
   return (
     <div
       aria-hidden={false}
-      className="absolute left-[-10%] right-[-10%] top-1/2"
-      style={{ transform: `translateY(-50%) rotate(${rotate}deg)` }}
+      className="marquee-ribbon absolute left-[-10%] right-[-10%] top-1/2"
+      style={{ '--ribbon-rotate': `${rotate}deg`, '--ribbon-rotate-md': `${rotateMd}deg` }}
     >
       <div
-        className={`overflow-hidden bg-gradient-to-r ${tint} to-transparent bg-[var(--color-text)]/[0.03] py-5 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.6)] backdrop-blur-sm md:py-6`}
+        className={`overflow-hidden bg-gradient-to-r ${tint} to-transparent bg-[var(--color-text)]/[0.03] py-3 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.6)] backdrop-blur-sm md:py-6`}
       >
         <div
-          className={`pause-on-hover flex w-max gap-16 ${
+          className={`pause-on-hover flex w-max gap-8 md:gap-16 ${
             reverse ? 'animate-marquee-reverse' : 'animate-marquee'
           }`}
         >
           {items.map((item, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 whitespace-nowrap text-[var(--color-text)]/50 transition-colors hover:text-[var(--color-text)]"
+              className="flex items-center gap-2 whitespace-nowrap text-[var(--color-text)]/50 transition-colors hover:text-[var(--color-text)] md:gap-3"
             >
-              <item.icon size={28} />
-              <span className="text-base font-medium md:text-lg">{item.label}</span>
+              <item.icon className="h-4 w-4 md:h-7 md:w-7" />
+              <span className="text-xs font-medium md:text-lg">{item.label}</span>
             </div>
           ))}
         </div>
