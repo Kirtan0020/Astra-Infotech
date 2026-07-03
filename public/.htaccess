@@ -17,4 +17,7 @@ RewriteRule ^api/ - [L]
 RewriteRule ^uploads/ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [QSA,L]
+# SPA fallback goes through render.php (not straight to index.html) so it can
+# inject the correct per-page title/description/OG tags from the CMS
+# database before the HTML reaches the browser — see api/render.php.
+RewriteRule ^ api/render.php [QSA,L]

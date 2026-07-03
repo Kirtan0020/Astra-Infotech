@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#06070d" />
-    <!-- description, Open Graph, and Twitter tags are injected per-route by
-         src/components/Seo.jsx (react-helmet-async) — kept out of here to
-         avoid duplicate meta tags fighting the per-page ones. -->
+    <!-- description, canonical, Open Graph, and Twitter tags are absent from
+         this static file on purpose: in production api/render.php injects
+         the real per-page values (from the CMS database) before this HTML
+         reaches the browser, and src/components/Seo.jsx (react-helmet-async)
+         re-applies the same values client-side once React mounts. Local dev
+         (Vite serving this file directly) only gets the client-side ones. -->
     <title>Astra Infotech — Design & Development Studio</title>
     <script>
       (function () {
