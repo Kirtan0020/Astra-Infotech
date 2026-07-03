@@ -22,7 +22,7 @@ export const stats = [
 export const services = [
   {
     title: 'Web Development',
-    desc: 'Fast, scalable websites and web apps built with modern frameworks — from marketing sites to full-stack platforms.',
+    desc: 'Fast, scalable websites and web apps built with modern frameworks, from marketing sites to full-stack platforms.',
     tags: ['React & Next.js', 'WordPress', 'Shopify', 'API & Backend'],
     features: [
       'Custom React & Next.js builds',
@@ -44,7 +44,7 @@ export const services = [
   },
   {
     title: 'UI/UX Design',
-    desc: 'Interfaces that look sharp and feel effortless — research-driven design systems that scale with your product.',
+    desc: 'Interfaces that look sharp and feel effortless, research-driven design systems that scale with your product.',
     tags: ['Design Systems', 'Prototyping', 'User Research'],
     features: [
       'User research & personas',
@@ -55,7 +55,7 @@ export const services = [
   },
   {
     title: 'Branding',
-    desc: 'Identity systems that make a company memorable — logo, color, type, and voice working as one.',
+    desc: 'Identity systems that make a company memorable: logo, color, type, and voice working as one.',
     tags: ['Identity', 'Brand Strategy', 'Guidelines'],
     features: [
       'Logo & visual identity',
@@ -75,7 +75,7 @@ export const process = [
   {
     step: '02',
     title: 'Design',
-    desc: 'Wireframes to polished UI — we design in fast, visible iterations so you always see where things stand.',
+    desc: 'Wireframes to polished UI. We design in fast, visible iterations so you always see where things stand.',
   },
   {
     step: '03',
@@ -92,7 +92,7 @@ export const process = [
 export const values = [
   {
     title: 'Ship fast, without cutting corners',
-    desc: 'Speed matters, but not at the cost of code quality — we move quickly by keeping teams small and decisions fast, not by skipping the details.',
+    desc: 'Speed matters, but not at the cost of code quality. We move quickly by keeping teams small and decisions fast, not by skipping the details.',
   },
   {
     title: 'Design and code, one team',
@@ -100,7 +100,7 @@ export const values = [
   },
   {
     title: 'Real communication',
-    desc: "No black-box updates. You'll always know what's shipping, what's next, and what changed — and why.",
+    desc: "No black-box updates. You'll always know what's shipping, what's next, and what changed, and why.",
   },
   {
     title: 'Built to last',
@@ -111,7 +111,7 @@ export const values = [
 export const culture = [
   {
     title: 'Work directly with clients',
-    desc: 'No layers between you and the people using what you build — you join client calls, hear the feedback firsthand, and see the impact of your work.',
+    desc: 'No layers between you and the people using what you build. You join client calls, hear the feedback firsthand, and see the impact of your work.',
   },
   {
     title: 'Own projects end-to-end',
@@ -119,7 +119,7 @@ export const culture = [
   },
   {
     title: 'Learn across web, mobile, and brand',
-    desc: 'Our projects span web apps, mobile builds, and branding work — plenty of room to go deep in what you love or grow into something new.',
+    desc: 'Our projects span web apps, mobile builds, and branding work, plenty of room to go deep in what you love or grow into something new.',
   },
   {
     title: 'Flexible, remote-friendly',
@@ -133,7 +133,7 @@ export const work = [
     category: 'Client Project · Bespoke Fashion',
     image: '/images/work/sutro.jpg',
     url: 'https://sutro.in/',
-    desc: "A bespoke tailoring house's e-commerce site — showcasing custom-made office, party, and ceremonial wear built on a tailoring legacy since 1947.",
+    desc: "A bespoke tailoring house's e-commerce site, showcasing custom-made office, party, and ceremonial wear built on a tailoring legacy since 1947.",
     tags: ['E-commerce', 'Fashion', 'Client Project'],
   },
   {
@@ -199,7 +199,7 @@ export const clients = [
 export const testimonials = [
   {
     quote:
-      "Astra Infotech didn't just build what we asked for — they pushed back with better ideas and shipped faster than we expected.",
+      "Astra Infotech didn't just build what we asked for; they pushed back with better ideas and shipped faster than we expected.",
     name: 'Sherly Sharon',
     role: 'Founder & CEO',
   },
@@ -220,7 +220,7 @@ export const testimonials = [
 export const faqs = [
   {
     q: 'What does a typical project timeline look like?',
-    a: 'Most engagements run 4–12 weeks depending on scope — a brand refresh can wrap in a few weeks, while a full product build spans several sprints with demos along the way.',
+    a: 'Most engagements run 4–12 weeks depending on scope; a brand refresh can wrap in a few weeks, while a full product build spans several sprints with demos along the way.',
   },
   {
     q: 'Do you work with startups or only established companies?',
@@ -228,7 +228,7 @@ export const faqs = [
   },
   {
     q: 'Can you just handle design, or only development?',
-    a: 'Either — engage us for design, development, or both. Many clients start with design and bring us back for the build once it is validated.',
+    a: 'Either: engage us for design, development, or both. Many clients start with design and bring us back for the build once it is validated.',
   },
   {
     q: "What's included after launch?",

@@ -72,6 +72,56 @@
     }
   }
 
+  /* Case studies index page: the link list is stored as raw HTML in the CMS
+     (RichTextSection dangerouslySetInnerHTML), so it can't rely on Tailwind
+     utility classes the build never scans — this is authored CSS instead,
+     targeting explicit classes embedded in that HTML. */
+  .case-study-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .case-study-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+    /* RichTextSection forces `[&_a]:underline` (a Tailwind utility, which
+       wins over this @layer base rule regardless of specificity) on every
+       link in its body — override it explicitly for these card links. */
+    text-decoration: none !important;
+    color: inherit;
+    transition: border-color 0.2s ease;
+  }
+  .case-study-card:hover {
+    border-color: var(--color-text);
+  }
+  .case-study-card img {
+    width: 7rem;
+    height: 5rem;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .case-study-card:hover img {
+    transform: scale(1.05);
+  }
+  .case-study-card-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    color: var(--color-text);
+  }
+  .case-study-card-category {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
   body {
     margin: 0;
     background: var(--color-bg);

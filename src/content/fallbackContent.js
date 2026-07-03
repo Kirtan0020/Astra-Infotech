@@ -1,4 +1,4 @@
-// Bundled fallback shape — used by ContentProvider only if /api/public/site.php
+// Bundled fallback shape, used by ContentProvider only if /api/public/site.php
 // is unreachable (e.g. API down, first paint before fetch resolves is handled
 // separately via `status`). Mirrors the exact shape scripts/generate-seed.mjs
 // produces, keyed as an object (pages[slug]) instead of an array to match the
@@ -25,7 +25,7 @@ const processWithIcons = processSteps.map((p, i) => ({ ...p, icon: processIconKe
 
 const ctaDefault = {
   heading: "Let's build something great together",
-  subtext: "Tell us about your project — we'll reply with next steps within one business day.",
+  subtext: "Tell us about your project and we'll reply with next steps within one business day.",
   buttonLabel: 'Get in touch',
   buttonHref: 'mailto:info.astrainfotech@gmail.com',
 }
@@ -145,9 +145,9 @@ export const fallbackPages = {
     title: 'Services',
     layout: 'normal',
     meta: {
-      title: 'Services — Web Development, Branding & Design | Astra Infotech',
+      title: 'Services: Web Development, Branding & Design | Astra Infotech',
       description:
-        'Explore our services: web development, branding, and product design. React, WordPress, Shopify, brand identity, UI/UX — everything to launch and grow your digital product.',
+        'Explore our services: web development, branding, and product design. React, WordPress, Shopify, brand identity, UI/UX: everything to launch and grow your digital product.',
       path: '/services',
     },
     sections: [
@@ -159,7 +159,7 @@ export const fallbackPages = {
           eyebrow: 'Our services',
           heading: 'Services built to move **fast**, without breaking things.',
           subtext:
-            'From a first prototype to a full-scale platform — we design, build, and ship web, mobile, and brand work under one roof.',
+            'From a first prototype to a full-scale platform, we design, build, and ship web, mobile, and brand work under one roof.',
         },
         items: [],
       },
@@ -174,9 +174,9 @@ export const fallbackPages = {
     title: 'Work',
     layout: 'normal',
     meta: {
-      title: 'Our Work — Client Projects & Case Studies | Astra Infotech',
+      title: 'Our Work: Client Projects & Case Studies | Astra Infotech',
       description:
-        "Browse Astra Infotech's portfolio of client projects across web development and design — real work for real businesses, from e-commerce to healthcare.",
+        "Browse Astra Infotech's portfolio of client projects across web development and design: real work for real businesses, from e-commerce to healthcare.",
       path: '/work',
     },
     sections: [
@@ -188,7 +188,7 @@ export const fallbackPages = {
           eyebrow: 'Selected work',
           heading: "Recent projects we're **proud** of.",
           subtext:
-            "A look at the sites and brands we've shipped for clients and our own ventures — from fashion and healthcare to food, hospitality, and consulting.",
+            "A look at the sites and brands we've shipped for clients and our own ventures, from fashion and healthcare to food, hospitality, and consulting.",
         },
         items: [],
       },
@@ -203,7 +203,7 @@ export const fallbackPages = {
     title: 'About',
     layout: 'normal',
     meta: {
-      title: 'About Us — Our Story, Mission & Team | Astra Infotech',
+      title: 'About Us: Our Story, Mission & Team | Astra Infotech',
       description:
         'Learn about Astra Infotech: our mission, vision, and the team building bold digital products for founders and teams worldwide.',
       path: '/about',
@@ -242,7 +242,7 @@ export const fallbackPages = {
     title: 'Team',
     layout: 'normal',
     meta: {
-      title: 'Our Team — Meet Astra Infotech | Astra Infotech',
+      title: 'Our Team: Meet Astra Infotech | Astra Infotech',
       description:
         'Meet the people behind Astra Infotech: the designers and developers building bold digital products for founders and teams worldwide.',
       path: '/team',
@@ -270,7 +270,7 @@ export const fallbackPages = {
     title: 'Career',
     layout: 'normal',
     meta: {
-      title: 'Careers — Join Astra Infotech',
+      title: 'Careers: Join Astra Infotech',
       description:
         "We're always looking for talented designers and developers. Explore open roles at Astra Infotech and see what it's like to build with us.",
       path: '/career',
@@ -301,7 +301,7 @@ export const fallbackPages = {
           eyebrow: 'Open roles',
           heading: "We don't always have a role listed, but we're always glad to hear from good people.",
           subtext:
-            "If you're a developer or designer who'd fit the culture above, send us a note with your portfolio or GitHub — we read every message.",
+            "If you're a developer or designer who'd fit the culture above, send us a note with your portfolio or GitHub. We read every message.",
           buttonLabel: 'Send your application',
           buttonHref: 'mailto:info.astrainfotech@gmail.com?subject=Application%20%E2%80%94%20Astra%20Infotech',
         },
@@ -315,7 +315,7 @@ export const fallbackPages = {
     title: 'Contact',
     layout: 'normal',
     meta: {
-      title: 'Contact Us — Start a Project | Astra Infotech',
+      title: 'Contact Us: Start a Project | Astra Infotech',
       description:
         "Get in touch with Astra Infotech to start your next project. Tell us about your idea and we'll reply with next steps within one business day.",
       path: '/contact',
@@ -327,7 +327,7 @@ export const fallbackPages = {
           style: 'blob',
           eyebrow: 'Contact',
           heading: "Let's talk about **your project**.",
-          subtext: "Tell us a bit about what you're building — we'll reply with next steps within one business day.",
+          subtext: "Tell us a bit about what you're building and we'll reply with next steps within one business day.",
         },
         items: [],
       },
@@ -339,9 +339,9 @@ export const fallbackPages = {
     title: 'Case Studies',
     layout: 'normal',
     meta: {
-      title: 'Case Studies — Real Client Projects | Astra Infotech',
+      title: 'Case Studies: Real Client Projects | Astra Infotech',
       description:
-        "Deeper dives into how Astra Infotech has approached specific client projects — from fashion e-commerce to B2B chemical trading and medical devices.",
+        "Deeper dives into how Astra Infotech has approached specific client projects, from fashion e-commerce to B2B chemical trading and medical devices.",
       path: '/case-studies',
     },
     sections: [
@@ -352,7 +352,7 @@ export const fallbackPages = {
           eyebrow: 'Case Studies',
           heading: 'A closer look at **real** projects.',
           subtext:
-            "Deeper dives into how we've approached specific client challenges — from fashion e-commerce to B2B chemical trading and medical devices.",
+            "Deeper dives into how we've approached specific client challenges, from fashion e-commerce to B2B chemical trading and medical devices.",
         },
         items: [],
       },
@@ -360,11 +360,23 @@ export const fallbackPages = {
         type: 'richtext',
         data: {
           html:
-            '<ul>' +
-            '<li><a href="/case-studies/sutro-bespoke">Sutro BeSpoke — Bespoke Fashion</a></li>' +
-            '<li><a href="/case-studies/pixel-resources">Pixel Resources — Chemical Trading</a></li>' +
-            '<li><a href="/case-studies/earth-ortho">Earth Ortho — Medical Devices</a></li>' +
-            '</ul>',
+            '<div class="case-study-list">' +
+            '<a class="case-study-card" href="/case-studies/sutro-bespoke">' +
+            '<img src="/images/work/sutro.jpg" alt="Sutro BeSpoke" loading="lazy" />' +
+            '<span><span class="case-study-card-title">Sutro BeSpoke</span>' +
+            '<span class="case-study-card-category">Bespoke Fashion</span></span>' +
+            '</a>' +
+            '<a class="case-study-card" href="/case-studies/pixel-resources">' +
+            '<img src="/images/work/pixel-resources.jpg" alt="Pixel Resources" loading="lazy" />' +
+            '<span><span class="case-study-card-title">Pixel Resources</span>' +
+            '<span class="case-study-card-category">Chemical Trading</span></span>' +
+            '</a>' +
+            '<a class="case-study-card" href="/case-studies/earth-ortho">' +
+            '<img src="/images/work/earth-ortho.jpg" alt="Earth Ortho" loading="lazy" />' +
+            '<span><span class="case-study-card-title">Earth Ortho</span>' +
+            '<span class="case-study-card-category">Medical Devices</span></span>' +
+            '</a>' +
+            '</div>',
         },
         items: [],
       },
@@ -374,10 +386,10 @@ export const fallbackPages = {
   'case-study-sutro-bespoke': {
     slug: 'case-study-sutro-bespoke',
     path: '/case-studies/sutro-bespoke',
-    title: 'Sutro BeSpoke — Case Study',
+    title: 'Sutro BeSpoke: Case Study',
     layout: 'normal',
     meta: {
-      title: 'Sutro BeSpoke Case Study — Bespoke Fashion E-commerce | Astra Infotech',
+      title: 'Sutro BeSpoke Case Study: Bespoke Fashion E-commerce | Astra Infotech',
       description:
         "How Astra Infotech built an e-commerce storefront for Sutro BeSpoke, a bespoke tailoring house with a legacy since 1947.",
       path: '/case-studies/sutro-bespoke',
@@ -388,7 +400,7 @@ export const fallbackPages = {
         data: {
           style: 'blob',
           eyebrow: 'Case Study',
-          heading: 'Sutro BeSpoke — **Tailoring**, translated online.',
+          heading: 'Sutro BeSpoke: **Tailoring**, translated online.',
           subtext: 'An e-commerce site for a bespoke tailoring house built on a legacy since 1947.',
         },
         items: [],
@@ -398,7 +410,7 @@ export const fallbackPages = {
         data: {
           html:
             '<h3>The brief</h3>' +
-            '<p>Sutro BeSpoke needed an online storefront that could carry the weight of a decades-old tailoring reputation — one built on custom-made office wear, party wear, and ceremonial garments — without feeling like a generic template store.</p>' +
+            '<p>Sutro BeSpoke needed an online storefront that could carry the weight of a decades-old tailoring reputation (built on custom-made office wear, party wear, and ceremonial garments) without feeling like a generic template store.</p>' +
             '<h3>What we built</h3>' +
             '<p>We designed and developed a fashion-forward e-commerce experience: large product photography, a clean catalog structure for office, party, and ceremonial categories, and a checkout flow built for a bespoke, made-to-order buying process rather than off-the-shelf retail.</p>' +
             '<h3>The result</h3>' +
@@ -413,10 +425,10 @@ export const fallbackPages = {
   'case-study-pixel-resources': {
     slug: 'case-study-pixel-resources',
     path: '/case-studies/pixel-resources',
-    title: 'Pixel Resources — Case Study',
+    title: 'Pixel Resources: Case Study',
     layout: 'normal',
     meta: {
-      title: 'Pixel Resources Case Study — B2B Chemical Trading Website | Astra Infotech',
+      title: 'Pixel Resources Case Study: B2B Chemical Trading Website | Astra Infotech',
       description:
         'How Astra Infotech built a corporate B2B site for Pixel Resources, a Gujarat-based chemical import/export company.',
       path: '/case-studies/pixel-resources',
@@ -427,7 +439,7 @@ export const fallbackPages = {
         data: {
           style: 'blob',
           eyebrow: 'Case Study',
-          heading: 'Pixel Resources — **B2B trust**, at global scale.',
+          heading: 'Pixel Resources: **B2B trust**, at global scale.',
           subtext: 'A corporate site for a Gujarat-based chemical import/export company.',
         },
         items: [],
@@ -437,7 +449,7 @@ export const fallbackPages = {
         data: {
           html:
             '<h3>The brief</h3>' +
-            '<p>Pixel Resources trades industrial, specialty, and pharmaceutical chemicals with buyers across the globe. Their site needed to read as credible and technical to a B2B, procurement-driven audience — not consumer-facing at all.</p>' +
+            '<p>Pixel Resources trades industrial, specialty, and pharmaceutical chemicals with buyers across the globe. Their site needed to read as credible and technical to a B2B, procurement-driven audience, not consumer-facing at all.</p>' +
             '<h3>What we built</h3>' +
             '<p>A corporate site structured around their product categories and certifications, with clear company information, product specification pages, and enquiry flows suited to how chemical buyers actually evaluate suppliers.</p>' +
             '<h3>The result</h3>' +
@@ -452,10 +464,10 @@ export const fallbackPages = {
   'case-study-earth-ortho': {
     slug: 'case-study-earth-ortho',
     path: '/case-studies/earth-ortho',
-    title: 'Earth Ortho — Case Study',
+    title: 'Earth Ortho: Case Study',
     layout: 'normal',
     meta: {
-      title: 'Earth Ortho Case Study — Medical Device Manufacturer Website | Astra Infotech',
+      title: 'Earth Ortho Case Study: Medical Device Manufacturer Website | Astra Infotech',
       description:
         'How Astra Infotech built a global-facing site for Earth Ortho, an orthopedic implant and surgical instrument manufacturer.',
       path: '/case-studies/earth-ortho',
@@ -466,7 +478,7 @@ export const fallbackPages = {
         data: {
           style: 'blob',
           eyebrow: 'Case Study',
-          heading: 'Earth Ortho — Precision for a **precision** industry.',
+          heading: 'Earth Ortho: Precision for a **precision** industry.',
           subtext: 'A global-facing site for an orthopedic implant and surgical instrument manufacturer.',
         },
         items: [],
@@ -476,11 +488,11 @@ export const fallbackPages = {
         data: {
           html:
             '<h3>The brief</h3>' +
-            '<p>Earth Ortho manufactures trauma, spinal, and joint reconstruction implants and instruments — a regulated, safety-critical industry where the website has to communicate precision and trust to surgeons and distributors, not just look good.</p>' +
+            '<p>Earth Ortho manufactures trauma, spinal, and joint reconstruction implants and instruments, a regulated, safety-critical industry where the website has to communicate precision and trust to surgeons and distributors, not just look good.</p>' +
             '<h3>What we built</h3>' +
             '<p>A structured, product-line-driven site covering their trauma, spinal, and joint reconstruction ranges, built to present technical product information clearly to a medical and distributor audience.</p>' +
             '<h3>The result</h3>' +
-            '<p>A site Earth Ortho can point international distributors and hospital partners to with confidence — one that matches the seriousness of the medical devices it represents.</p>' +
+            '<p>A site Earth Ortho can point international distributors and hospital partners to with confidence, one that matches the seriousness of the medical devices it represents.</p>' +
             '<p><a href="https://earthortho.com/" target="_blank" rel="noopener noreferrer">Visit the live site →</a></p>',
         },
         items: [],
