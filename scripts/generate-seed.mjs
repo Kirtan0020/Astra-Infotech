@@ -59,7 +59,7 @@ const footerNav = [
   {
     group_label: 'Company',
     links: [
-      { label: 'Home', href: '#top' },
+      { label: 'Home', href: '/' },
       { label: 'Services', href: '/services' },
     ],
   },

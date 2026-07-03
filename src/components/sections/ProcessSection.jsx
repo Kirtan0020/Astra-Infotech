@@ -1,21 +1,60 @@
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import Reveal from '../Reveal.jsx'
 import TiltCard from '../TiltCard.jsx'
 import { getIcon } from '../../content/iconRegistry.js'
+import { useTrackWheelScroll, makeTrackScroller } from '../../content/useTrackWheelScroll.js'
 
+// Horizontal snap-scroll track (same pattern as Services/Work) instead of a
+// static grid — on mobile a 4-card grid meant a very long section to scroll
+// past; a track lets you swipe through the steps instead.
 export default function ProcessSection({ data = {}, items = [] }) {
+  const trackRef = useRef(null)
+  const scroll = makeTrackScroller(trackRef)
+  useTrackWheelScroll(trackRef, scroll)
+
   return (
     <div className="container-px">
-      <Reveal>
-        {data.eyebrow && <span className="section-eyebrow">{data.eyebrow}</span>}
-        <h2 className="max-w-xl font-display text-3xl text-[var(--color-text)] md:text-5xl">{data.heading}</h2>
+      <Reveal className="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          {data.eyebrow && <span className="section-eyebrow">{data.eyebrow}</span>}
+          <h2 className="max-w-xl font-display text-3xl text-[var(--color-text)] md:text-5xl">{data.heading}</h2>
+        </div>
+        {items.length > 1 && (
+          <div className="hidden items-center gap-3 sm:flex">
+            <button
+              type="button"
+              onClick={() => scroll(-1)}
+              className="rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)]"
+              aria-label="Scroll process left"
+            >
+              <HiChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              onClick={() => scroll(1)}
+              className="rounded-full border border-[var(--color-text)]/10 p-3 text-[var(--color-text)]/70 transition-colors hover:bg-[var(--color-text)]/5 hover:text-[var(--color-text)]"
+              aria-label="Scroll process right"
+            >
+              <HiChevronRight size={20} />
+            </button>
+          </div>
+        )}
       </Reveal>
 
-      <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div
+        ref={trackRef}
+        className="no-scrollbar mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4"
+      >
         {items.map((item, i) => {
           const Icon = getIcon(item.icon)
           return (
-            <Reveal key={item.step} delay={i * 0.08}>
+            <Reveal
+              key={item.step}
+              delay={i * 0.08}
+              className="w-[85%] shrink-0 snap-start sm:w-[calc((100%-20px)/2)] lg:w-[calc((100%-60px)/4)]"
+            >
               <TiltCard>
                 <div className="relative h-full rounded-3xl border border-[var(--color-text)]/10 bg-[var(--color-bg)] !p-9">
                   <span

@@ -54,7 +54,7 @@ export const fallbackFooterLinks = [
   {
     title: 'Company',
     links: [
-      { label: 'Home', href: '#top' },
+      { label: 'Home', href: '/' },
       { label: 'Services', href: '/services' },
     ],
   },
