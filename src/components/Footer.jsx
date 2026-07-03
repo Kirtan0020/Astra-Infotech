@@ -61,32 +61,37 @@ export default function Footer() {
             </div>
           </div>
 
-          {linkColumns.map((col) => (
-            <div key={col.title}>
-              <h3 className="font-display text-lg text-[var(--color-text)] md:text-xl">{col.title}</h3>
-              <ul className="mt-4 space-y-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    {link.href.startsWith('/') ? (
-                      <Link
-                        to={link.href}
-                        className="text-sm text-[var(--color-text)]/60 underline-offset-4 transition-colors hover:text-[var(--color-text)] hover:underline"
-                      >
-                        {link.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className="text-sm text-[var(--color-text)]/60 underline-offset-4 transition-colors hover:text-[var(--color-text)] hover:underline"
-                      >
-                        {link.label}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Side-by-side on mobile (grid-cols-2); on md+ this wrapper
+              collapses via `contents` so each column becomes its own cell
+              in the outer 4-column grid, same as before. */}
+          <div className="grid grid-cols-2 gap-6 md:contents">
+            {linkColumns.map((col) => (
+              <div key={col.title}>
+                <h3 className="font-display text-lg text-[var(--color-text)] md:text-xl">{col.title}</h3>
+                <ul className="mt-4 space-y-3">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      {link.href.startsWith('/') ? (
+                        <Link
+                          to={link.href}
+                          className="text-sm text-[var(--color-text)]/60 underline-offset-4 transition-colors hover:text-[var(--color-text)] hover:underline"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-sm text-[var(--color-text)]/60 underline-offset-4 transition-colors hover:text-[var(--color-text)] hover:underline"
+                        >
+                          {link.label}
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
 
           <div>
             <h3 className="font-display text-lg text-[var(--color-text)] md:text-xl">Get in Touch</h3>
