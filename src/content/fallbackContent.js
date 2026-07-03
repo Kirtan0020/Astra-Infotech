@@ -62,6 +62,7 @@ export const fallbackFooterLinks = [
     title: 'Explore',
     links: [
       { label: 'Work', href: '/work' },
+      { label: 'Case Studies', href: '/case-studies' },
       { label: 'About', href: '/about' },
       { label: 'Career', href: '/career' },
     ],
