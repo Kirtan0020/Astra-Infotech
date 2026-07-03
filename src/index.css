@@ -309,3 +309,18 @@
     color: color-mix(in srgb, var(--color-text) 80%, transparent);
   }
 }
+
+/* Respect the OS-level "reduce motion" accessibility setting — stops the
+   decorative ambient animations (aura blobs, floating particles, blob
+   morph/drift) for users who've asked for less motion, without touching
+   anything for everyone else. */
+@media (prefers-reduced-motion: reduce) {
+  .aura-blob-1,
+  .aura-blob-2,
+  .aura-blob-3,
+  .particle-float,
+  .blob-morph,
+  .blob-drift {
+    animation: none !important;
+  }
+}
