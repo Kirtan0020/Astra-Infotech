@@ -42,8 +42,8 @@
       }
       #preloader .preloader-visual {
         position: relative;
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -53,18 +53,70 @@
         inset: 0;
         border-radius: 9999px;
         border: 1px dashed rgba(139, 92, 246, 0.35);
-        animation: preloader-spin 5s linear infinite;
+        animation: preloader-spin 6s linear infinite;
       }
       #preloader .preloader-ring-inner {
         position: absolute;
-        inset: 16px;
+        inset: 21px;
         border-radius: 9999px;
         border: 1px solid rgba(79, 110, 247, 0.3);
-        animation: preloader-spin 4s linear infinite reverse;
+        animation: preloader-spin 4.5s linear infinite reverse;
+      }
+      /* Orbit tracks: each is a rotating square that carries one dot at its
+         top edge, same trick as the Home hero's orbit visual — the dot
+         traces a circle as its parent spins. */
+      #preloader .preloader-orbit {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-radius: 9999px;
+      }
+      #preloader .preloader-orbit-1 {
+        width: 140px;
+        height: 140px;
+        margin: -70px 0 0 -70px;
+        animation: preloader-spin 3.6s linear infinite;
+      }
+      #preloader .preloader-orbit-2 {
+        width: 98px;
+        height: 98px;
+        margin: -49px 0 0 -49px;
+        animation: preloader-spin 2.6s linear infinite reverse;
+      }
+      #preloader .preloader-orbit-3 {
+        width: 66px;
+        height: 66px;
+        margin: -33px 0 0 -33px;
+        animation: preloader-spin 1.9s linear infinite;
+      }
+      #preloader .preloader-dot {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        border-radius: 9999px;
+        transform: translate(-50%, -50%);
+      }
+      #preloader .preloader-orbit-1 .preloader-dot {
+        width: 9px;
+        height: 9px;
+        background: #6ea8fe;
+        box-shadow: 0 0 10px 2px rgba(79, 110, 247, 0.9);
+      }
+      #preloader .preloader-orbit-2 .preloader-dot {
+        width: 7px;
+        height: 7px;
+        background: #b6a5ff;
+        box-shadow: 0 0 10px 2px rgba(139, 92, 246, 0.9);
+      }
+      #preloader .preloader-orbit-3 .preloader-dot {
+        width: 6px;
+        height: 6px;
+        background: #f0abfc;
+        box-shadow: 0 0 8px 2px rgba(214, 178, 255, 0.9);
       }
       #preloader .preloader-glow {
         position: absolute;
-        inset: 22px;
+        inset: 27px;
         border-radius: 9999px;
         background: radial-gradient(circle, #6c63ff 0%, #8b5cf6 55%, transparent 75%);
         animation: preloader-glow 1.6s ease-in-out infinite;
@@ -108,6 +160,9 @@
       @media (prefers-reduced-motion: reduce) {
         #preloader .preloader-ring,
         #preloader .preloader-ring-inner,
+        #preloader .preloader-orbit-1,
+        #preloader .preloader-orbit-2,
+        #preloader .preloader-orbit-3,
         #preloader .preloader-glow,
         #preloader img {
           animation: none;
@@ -120,6 +175,9 @@
       <div class="preloader-visual">
         <div class="preloader-ring"></div>
         <div class="preloader-ring-inner"></div>
+        <div class="preloader-orbit preloader-orbit-1"><span class="preloader-dot"></span></div>
+        <div class="preloader-orbit preloader-orbit-2"><span class="preloader-dot"></span></div>
+        <div class="preloader-orbit preloader-orbit-3"><span class="preloader-dot"></span></div>
         <div class="preloader-glow"></div>
         <img src="/logo.png" alt="" />
       </div>
