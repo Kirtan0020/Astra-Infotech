@@ -29,7 +29,7 @@ const items = [...stack, ...stack]
 // breakpoint via CSS (see .marquee-ribbon in index.css).
 export default function TechMarquee() {
   return (
-    <div className="relative h-64 overflow-hidden bg-[var(--color-bg)] md:h-72">
+    <div className="relative h-56 overflow-hidden bg-[var(--color-bg)] md:h-72">
       <MarqueeRibbon rotate={10} rotateMd={-6} tint="from-blue-500/15 via-blue-500/5" />
       <MarqueeRibbon rotate={-10} rotateMd={6} reverse tint="from-violet-500/15 via-violet-500/5" />
     </div>

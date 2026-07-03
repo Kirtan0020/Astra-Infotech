@@ -129,7 +129,7 @@ export default function HeroSection({ data = {} }) {
       onMouseLeave={style === 'orbit' ? handleMouseLeave : undefined}
       className={
         tall
-          ? 'relative flex min-h-[100svh] items-center overflow-hidden pt-28'
+          ? 'relative flex min-h-[88svh] items-center overflow-hidden pt-28 md:min-h-[100svh]'
           : 'relative overflow-hidden pb-16 pt-40 md:pb-24 md:pt-48'
       }
     >
