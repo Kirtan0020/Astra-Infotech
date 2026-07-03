@@ -39,10 +39,24 @@
     scroll-behavior: smooth;
   }
 
+  /* The "stacked cards" sticky-scroll effect is a desktop flourish — on
+     mobile, `vh` units are unreliable (browser toolbars resize the visible
+     viewport as you scroll), which made stacked sections overlap/peek
+     through each other. Below md, sections just render in normal document
+     flow (no overlap possible); the sticky effect only kicks in at md+,
+     using the same --stack-top/--stack-z values set inline per section. */
   .stack-section {
+    position: relative;
     will-change: transform;
     contain: layout paint style;
     backface-visibility: hidden;
+  }
+  @media (min-width: 768px) {
+    .stack-section {
+      position: sticky;
+      top: var(--stack-top, 0px);
+      z-index: var(--stack-z, 1);
+    }
   }
 
   body {
