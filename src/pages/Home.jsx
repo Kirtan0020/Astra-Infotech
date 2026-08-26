@@ -18,6 +18,11 @@ export default function Home() {
     url: settings.site_url,
     logo: `${settings.site_url}${settings.logo_path}`,
     email: settings.email,
+    description:
+      'Astra Infotech is a software development company building websites, apps, and brands for founders and teams worldwide.',
+    address: { '@type': 'PostalAddress', addressCountry: 'IN' },
+    areaServed: 'Worldwide',
+    knowsAbout: ['Software Development', 'Web Development', 'App Development', 'UI/UX Design', 'Branding'],
     sameAs: [],
   }
 
