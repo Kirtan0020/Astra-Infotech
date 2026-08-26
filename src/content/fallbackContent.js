@@ -41,7 +41,7 @@ export const fallbackSettings = {
   logo_path: '/logo.png',
   start_project_cta_label: 'Start a project',
   available_badge_label: 'Available for new projects',
-  footer_copyright: 'Astra Infotech: Online Software Development Company, done right.',
+  footer_copyright: 'Astra Infotech: Design & Development, done right.',
   social_twitter: '',
   social_linkedin: '',
   social_instagram: '',
@@ -76,9 +76,9 @@ export const fallbackPages = {
     title: 'Home',
     layout: 'stacked',
     meta: {
-      title: 'Astra Infotech: Software Development Company',
+      title: 'Astra Infotech: Design & Development',
       description:
-        'Astra Infotech is a software development company that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands.',
+        'Astra Infotech is a development & design team that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands.',
       path: '/',
     },
     sections: [
@@ -89,7 +89,7 @@ export const fallbackPages = {
           badgeLabel: 'Available for new projects',
           heading: 'We design & build\n**digital products**\nthat grow.',
           subtext:
-            'Astra Infotech is a software development company that works entirely online. We partner with founders and teams worldwide, bringing the flexibility of a freelancer and the reliability of a company to every project.',
+            'Astra Infotech is a development & design team that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands.',
           primaryCtaLabel: 'Start a project',
           primaryCtaHref: '/contact',
           secondaryCtaLabel: 'View our work',
@@ -146,9 +146,9 @@ export const fallbackPages = {
     title: 'Services',
     layout: 'normal',
     meta: {
-      title: 'Software Development Services: Web, App, Branding & Design | Astra Infotech',
+      title: 'Services: Web Development, Branding & Design | Astra Infotech',
       description:
-        "Astra Infotech is a software development company offering web development, app development, branding, and product design. React, WordPress, Shopify, brand identity, UI/UX: everything to launch and grow your digital product.",
+        'Explore our services: web development, branding, and product design. React, WordPress, Shopify, brand identity, UI/UX: everything to launch and grow your digital product.',
       path: '/services',
     },
     sections: [
@@ -160,7 +160,7 @@ export const fallbackPages = {
           eyebrow: 'Our services',
           heading: 'Services built to move **fast**, without breaking things.',
           subtext:
-            'From a first prototype to a full-scale platform, we design, build, and ship web, mobile, and brand work — entirely online, with the flexibility of a freelancer and the reliability of a company behind every project.',
+            'From a first prototype to a full-scale platform, we design, build, and ship web, mobile, and brand work under one roof.',
         },
         items: [],
       },
@@ -206,7 +206,7 @@ export const fallbackPages = {
     meta: {
       title: 'About Us: Our Story, Mission & Team | Astra Infotech',
       description:
-        'Learn about Astra Infotech, a software development company: our mission, vision, and the team building bold digital products for founders and teams worldwide.',
+        'Learn about Astra Infotech: our mission, vision, and the team building bold digital products for founders and teams worldwide.',
       path: '/about',
     },
     sections: [
@@ -218,7 +218,7 @@ export const fallbackPages = {
           eyebrow: 'About us',
           heading: 'A team built around **good work**, not busywork.',
           subtext:
-            'Astra Infotech is a software development company that works entirely online, partnering with founders and teams worldwide to turn ideas into fast, beautiful websites, apps, and brands. Small team, senior craft, direct communication — the flexibility of a freelancer, the reliability of a company.',
+            'Astra Infotech is a development & design team that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands. Small team, senior craft, direct communication.',
         },
         items: [],
       },
