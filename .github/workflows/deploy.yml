@@ -24,14 +24,25 @@ jobs:
       # dist/ is fully reproducible from source, so --delete keeps old JS/CSS
       # bundle hashes from piling up. uploads/ is EXCLUDED on purpose — it
       # only exists on the server (real media-library uploads), never in dist/.
+      #
+      # Plain FTP on 21, not SFTP on 22 — this Hostinger plan doesn't expose
+      # SSH/SFTP, so lftp would hang indefinitely waiting on a handshake that
+      # never completes (see .vscode/sftp.json / DEPLOY.md, the proven-working
+      # manual deploy path). The outer `timeout` plus lftp's own net:timeout
+      # are a backstop so a future connectivity issue fails fast instead of
+      # hanging for the job's full 6-hour default.
       - name: Deploy frontend
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" sftp://$FTP_HOST:22 -e "
-            set sftp:auto-confirm yes;
+          timeout 120 lftp -u "$FTP_USERNAME,$FTP_PASSWORD" ftp://$FTP_HOST:21 -e "
+            set ftp:ssl-allow no;
+            set net:timeout 15;
+            set net:max-retries 2;
+            set net:reconnect-interval-base 5;
+            set cmd:fail-exit yes;
             mirror -R --delete --verbose --exclude-glob uploads/ dist/ /public_html/;
             bye
           "
@@ -44,8 +55,12 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" sftp://$FTP_HOST:22 -e "
-            set sftp:auto-confirm yes;
+          timeout 120 lftp -u "$FTP_USERNAME,$FTP_PASSWORD" ftp://$FTP_HOST:21 -e "
+            set ftp:ssl-allow no;
+            set net:timeout 15;
+            set net:max-retries 2;
+            set net:reconnect-interval-base 5;
+            set cmd:fail-exit yes;
             mirror -R --verbose api/ /public_html/api/;
             bye
           "
