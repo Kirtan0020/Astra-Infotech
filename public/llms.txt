@@ -1,0 +1,21 @@
+# Astra Infotech
+
+> Astra Infotech is a design & development studio that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands. Based in India, working with clients worldwide.
+
+Astra Infotech offers four core services: Web Development (React & Next.js, WordPress, Shopify, API & backend), App Development (native iOS & Android, Flutter, React Native), UI/UX Design (design systems, prototyping, user research), and Branding (identity, brand strategy, guidelines). The team works end-to-end — the same people who design a product also help build it — through a four-step process: Discover, Design, Develop, Deliver & Scale. Typical project timelines run 4–12 weeks. Clients range from early-stage startups building an MVP to established businesses modernizing an existing product or brand.
+
+## Pages
+
+- [Home](https://astrainfotech.net/): overview of services, process, work, and testimonials
+- [Services](https://astrainfotech.net/services): detailed breakdown of web development, app development, UI/UX design, and branding offerings
+- [Work](https://astrainfotech.net/work): portfolio of client and self-directed projects across e-commerce, healthcare, hospitality, and more
+- [Case Studies](https://astrainfotech.net/case-studies): in-depth write-ups of specific client projects
+- [About](https://astrainfotech.net/about): mission, vision, and story
+- [Team](https://astrainfotech.net/team): the people behind Astra Infotech
+- [Career](https://astrainfotech.net/career): open roles and what it's like to work here
+- [Contact](https://astrainfotech.net/contact): start a project, get in touch
+
+## Contact
+
+- Email: info.astrainfotech@gmail.com
+- Phone: +91 96381 11333

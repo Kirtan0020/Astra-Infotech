@@ -1,4 +1,33 @@
 User-agent: *
 Allow: /
 
+# AI / answer-engine crawlers — explicitly welcomed so the site is eligible
+# for AI Overviews, ChatGPT/Perplexity search citations, and similar.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://astrainfotech.net/sitemap.xml
