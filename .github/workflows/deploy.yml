@@ -25,8 +25,6 @@ jobs:
       # dist/ is fully reproducible from source, so --delete keeps old JS/CSS
       # bundle hashes from piling up. uploads/ is EXCLUDED on purpose — it
       # only exists on the server (real media-library uploads), never in dist/.
-      # api/config.php lives only on the server (gitignored, never checked
-      # out in CI) so the backend mirror has no --delete, or it'd wipe it.
       #
       # Plain FTP on 21, not SFTP on 22 — this Hostinger plan doesn't expose
       # SSH/SFTP, so lftp would hang indefinitely waiting on a handshake that
@@ -35,11 +33,11 @@ jobs:
       # are a backstop so a future connectivity issue fails fast instead of
       # hanging for the job's full 6-hour default.
       #
-      # Frontend and backend are two independent lftp sessions to different
-      # remote directories, so they run as background jobs in parallel here
-      # instead of as two sequential steps — `mirror --parallel` also
-      # transfers several files per session at once instead of one-by-one.
-      - name: Deploy frontend + backend
+      # Sequential, one lftp session at a time, on purpose — tried running
+      # frontend+backend as two concurrent lftp sessions to speed this up,
+      # but this Hostinger FTP account only allows one connection at a time:
+      # both sessions hit "max-retries exceeded" when run in parallel.
+      - name: Deploy frontend
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -51,30 +49,24 @@ jobs:
             set net:max-retries 2;
             set net:reconnect-interval-base 5;
             set cmd:fail-exit yes;
-            set mirror:parallel-transfer-count 4;
             mirror -R --delete --verbose --exclude-glob uploads/ dist/ /public_html/;
             bye
-          " &
-          FRONTEND_PID=$!
+          "
 
+      # No --delete here: api/config.php lives only on the server (gitignored,
+      # never checked out in CI) and must never be removed by this step.
+      - name: Deploy backend
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
           timeout 120 lftp -u "$FTP_USERNAME,$FTP_PASSWORD" ftp://$FTP_HOST:21 -e "
             set ftp:ssl-allow no;
             set net:timeout 15;
             set net:max-retries 2;
             set net:reconnect-interval-base 5;
             set cmd:fail-exit yes;
-            set mirror:parallel-transfer-count 4;
             mirror -R --verbose api/ /public_html/api/;
             bye
-          " &
-          BACKEND_PID=$!
-
-          wait "$FRONTEND_PID"
-          FRONTEND_STATUS=$?
-          wait "$BACKEND_PID"
-          BACKEND_STATUS=$?
-
-          if [ "$FRONTEND_STATUS" -ne 0 ] || [ "$BACKEND_STATUS" -ne 0 ]; then
-            echo "Frontend exit: $FRONTEND_STATUS, Backend exit: $BACKEND_STATUS"
-            exit 1
-          fi
+          "
