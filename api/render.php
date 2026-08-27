@@ -104,7 +104,7 @@ $orgJsonLd = [
     'email' => $settings['email'] ?? '',
     'telephone' => $settings['phone'] ?? '',
     'areaServed' => 'Worldwide',
-    'description' => 'Astra Infotech is a design & development studio offering web development, app development, UI/UX design, and branding.',
+    'description' => 'Astra Infotech is a virtual design & development studio offering web development, app development, UI/UX design, and branding, working with clients worldwide.',
     'sameAs' => $sameAs,
 ];
 
