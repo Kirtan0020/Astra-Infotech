@@ -37,6 +37,15 @@ jobs:
       # frontend+backend as two concurrent lftp sessions to speed this up,
       # but this Hostinger FTP account only allows one connection at a time:
       # both sessions hit "max-retries exceeded" when run in parallel.
+      #
+      # Remote target is "/" (the FTP jail root), NOT "/public_html/" — this
+      # FTP account is already chrooted to .../domains/astrainfotech.net/public_html
+      # (confirmed via SSH and matching .vscode/sftp.json's remotePath: "/").
+      # Using "/public_html/" here was creating a nested public_html/public_html/
+      # duplicate that the live vhost never served, while the real docroot sat
+      # frozen on its original July upload — this is the actual root cause of
+      # every "deploy succeeded but nothing changed live" symptom investigated
+      # today, not server-side caching.
       - name: Deploy frontend
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
@@ -49,7 +58,7 @@ jobs:
             set net:max-retries 2;
             set net:reconnect-interval-base 5;
             set cmd:fail-exit yes;
-            mirror -R --delete --verbose --exclude-glob uploads/ dist/ /public_html/;
+            mirror -R --delete --verbose --exclude-glob uploads/ dist/ /;
             bye
           "
 
@@ -67,6 +76,6 @@ jobs:
             set net:max-retries 2;
             set net:reconnect-interval-base 5;
             set cmd:fail-exit yes;
-            mirror -R --verbose api/ /public_html/api/;
+            mirror -R --verbose api/ /api/;
             bye
           "

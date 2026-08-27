@@ -1,1 +1,0 @@
-probe file for hosting-side existence check - deployed 2026-08-27
