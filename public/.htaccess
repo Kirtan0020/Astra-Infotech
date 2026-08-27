@@ -15,6 +15,13 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteRule ^api/ - [L]
 RewriteRule ^uploads/ - [L]
+
+# The exact root path always has to go through render.php even though
+# index.html exists as a real file there (DirectoryIndex would otherwise
+# serve it directly, skipping the meta/JSON-LD injection below) — every
+# other route already falls through via the !-f/!-d check that follows.
+RewriteRule ^$ api/render.php [QSA,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 # SPA fallback goes through render.php (not straight to index.html) so it can
