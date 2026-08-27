@@ -45,7 +45,18 @@ if ($info === false) {
 $width = $info[0];
 $height = $info[1];
 
-$uploadsRoot = __DIR__ . '/../../public/uploads';
+// __DIR__ is api/admin; two levels up is the repo root in local dev (where
+// Vite serves public/ as the web root, so uploads must land in
+// public/uploads for the browser to see them) but is public_html directly
+// in production (dist/ was deployed flattened into public_html/ with no
+// "public" wrapper — see DEPLOY.md — so uploads must live at
+// public_html/uploads, not public_html/public/uploads). Checking whether a
+// sibling "public" directory exists picks the right one in both cases
+// without needing an explicit environment flag.
+$siblingRoot = dirname(__DIR__, 2);
+$uploadsRoot = is_dir($siblingRoot . '/public')
+    ? $siblingRoot . '/public/uploads'
+    : $siblingRoot . '/uploads';
 $subdir = '/' . date('Y') . '/' . date('m');
 $destDir = $uploadsRoot . $subdir;
 if (!is_dir($destDir) && !mkdir($destDir, 0755, true) && !is_dir($destDir)) {
