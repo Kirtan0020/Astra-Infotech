@@ -24,7 +24,12 @@ jobs:
 
       # dist/ is fully reproducible from source, so --delete keeps old JS/CSS
       # bundle hashes from piling up. uploads/ is EXCLUDED on purpose — it
-      # only exists on the server (real media-library uploads), never in dist/.
+      # only exists on the server (real media-library uploads), never in
+      # dist/. api/ is ALSO excluded here even though dist/ never contains
+      # it — without this, --delete treats the server's whole api/ folder
+      # (including api/config.php, gitignored, server-only) as extraneous
+      # and wipes it on every single deploy; the backend step below is the
+      # only one allowed to touch api/, and it never deletes.
       #
       # Plain FTP on 21, not SFTP on 22 — this Hostinger plan doesn't expose
       # SSH/SFTP, so lftp would hang indefinitely waiting on a handshake that
@@ -58,7 +63,7 @@ jobs:
             set net:max-retries 2;
             set net:reconnect-interval-base 5;
             set cmd:fail-exit yes;
-            mirror -R --delete --verbose --exclude-glob uploads/ dist/ /;
+            mirror -R --delete --verbose --exclude-glob uploads/ --exclude-glob api/ dist/ /;
             bye
           "
 

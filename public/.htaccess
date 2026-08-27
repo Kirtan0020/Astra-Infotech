@@ -20,7 +20,10 @@ RewriteRule ^uploads/ - [L]
 # index.html exists as a real file there (DirectoryIndex would otherwise
 # serve it directly, skipping the meta/JSON-LD injection below) — every
 # other route already falls through via the !-f/!-d check that follows.
-RewriteRule ^$ api/render.php [QSA,L]
+# Matched via REQUEST_URI (not a `^$` RewriteRule pattern) because the
+# per-directory path mod_rewrite sees here wasn't reliably empty.
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^ api/render.php [QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
