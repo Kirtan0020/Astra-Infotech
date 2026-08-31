@@ -61,27 +61,23 @@ export default function Navbar() {
               : 'border-transparent bg-transparent'
           }`}
         >
-          {isHome ? (
-            <a href="#top" className="flex items-center gap-2.5">
-              <motion.img
-                src={settings.logo_path}
-                alt="Astra Infotech"
-                className="h-9 w-9"
-                whileHover={{ rotate: 12, scale: 1.08 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-              />
-            </a>
-          ) : (
-            <Link to="/" className="flex items-center gap-2.5">
-              <motion.img
-                src={settings.logo_path}
-                alt="Astra Infotech"
-                className="h-9 w-9"
-                whileHover={{ rotate: 12, scale: 1.08 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-              />
-            </Link>
-          )}
+          <Link
+            to="/"
+            onClick={() => {
+              setOpen(false)
+              window.scrollTo({ top: 0, behavior: isHome ? 'smooth' : 'auto' })
+            }}
+            className="flex items-center gap-2.5"
+            aria-label={`${settings.site_name} — home`}
+          >
+            <motion.img
+              src={settings.logo_path}
+              alt="Astra Infotech"
+              className="h-9 w-9"
+              whileHover={{ rotate: 12, scale: 1.08 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+            />
+          </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => {
