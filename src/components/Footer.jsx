@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiTwitter, FiInstagram } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiFacebook } from 'react-icons/fi'
 import FloatingParticles from './FloatingParticles.jsx'
 import { useContent } from '../content/ContentProvider.jsx'
 
@@ -8,6 +8,7 @@ const socialIcons = [
   { Icon: FiTwitter, key: 'social_twitter' },
   { Icon: FiLinkedin, key: 'social_linkedin' },
   { Icon: FiInstagram, key: 'social_instagram' },
+  { Icon: FiFacebook, key: 'social_facebook' },
   { Icon: FiGithub, key: 'social_github' },
 ]
 

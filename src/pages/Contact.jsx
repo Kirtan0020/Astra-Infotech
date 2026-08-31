@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { HiOutlineArrowRight } from 'react-icons/hi'
-import { FiGithub, FiLinkedin, FiTwitter, FiInstagram } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiFacebook } from 'react-icons/fi'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import Seo from '../components/Seo.jsx'
@@ -13,6 +13,7 @@ const socialIcons = [
   { Icon: FiTwitter, key: 'social_twitter' },
   { Icon: FiLinkedin, key: 'social_linkedin' },
   { Icon: FiInstagram, key: 'social_instagram' },
+  { Icon: FiFacebook, key: 'social_facebook' },
   { Icon: FiGithub, key: 'social_github' },
 ]
 

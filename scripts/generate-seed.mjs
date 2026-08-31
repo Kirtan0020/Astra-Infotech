@@ -45,9 +45,10 @@ const settings = {
   start_project_cta_label: 'Start a project',
   available_badge_label: 'Available for new projects',
   footer_copyright: 'Astra Infotech — Design & Development, done right.',
-  social_twitter: '',
+  social_twitter: 'https://x.com/Astra_Infotech',
   social_linkedin: '',
-  social_instagram: '',
+  social_instagram: 'https://www.instagram.com/astra_infotech',
+  social_facebook: '',
   social_github: '',
 }
 

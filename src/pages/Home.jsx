@@ -11,9 +11,13 @@ export default function Home() {
   const { pages, settings } = useContent()
   const page = pages.home
 
-  const sameAs = [settings.social_twitter, settings.social_linkedin, settings.social_instagram, settings.social_github].filter(
-    Boolean,
-  )
+  const sameAs = [
+    settings.social_twitter,
+    settings.social_linkedin,
+    settings.social_instagram,
+    settings.social_facebook,
+    settings.social_github,
+  ].filter(Boolean)
 
   const orgJsonLd = {
     '@context': 'https://schema.org',

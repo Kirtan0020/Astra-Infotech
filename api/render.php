@@ -92,6 +92,7 @@ $sameAs = array_values(array_filter([
     $settings['social_twitter'] ?? '',
     $settings['social_linkedin'] ?? '',
     $settings['social_instagram'] ?? '',
+    $settings['social_facebook'] ?? '',
     $settings['social_github'] ?? '',
 ]));
 $orgJsonLd = [
