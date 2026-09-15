@@ -35,7 +35,17 @@ export const SECTION_TYPE_OPTIONS = [
     type: 'work',
     label: 'Work / portfolio grid',
     description: 'Project cards with image, category, tags',
-    data: { eyebrow: 'Eyebrow', heading: 'Heading' },
+    data: {
+      eyebrow: 'Eyebrow',
+      heading: 'Heading',
+      // Opt into a one-line auto-scrolling track with arrow buttons (see
+      // WorkSection.jsx) — useful for a page that IS the full listing rather
+      // than a "view all" teaser, e.g. Case Studies. internalLinks swaps the
+      // card anchor for in-app routing instead of an external new-tab link.
+      horizontalScroll: false,
+      autoplay: false,
+      internalLinks: false,
+    },
     items: [{ title: 'Project', category: 'Category', image: '', url: '', desc: 'Description', tags: ['Tag'] }],
   },
   {

@@ -359,28 +359,45 @@ export const fallbackPages = {
         items: [],
       },
       {
-        type: 'richtext',
-        data: {
-          html:
-            '<div class="case-study-list">' +
-            '<a class="case-study-card" href="/case-studies/sutro-bespoke">' +
-            '<img src="/images/work/sutro.jpg" alt="Sutro BeSpoke" loading="lazy" />' +
-            '<span><span class="case-study-card-title">Sutro BeSpoke</span>' +
-            '<span class="case-study-card-category">Bespoke Fashion</span></span>' +
-            '</a>' +
-            '<a class="case-study-card" href="/case-studies/pixel-resources">' +
-            '<img src="/images/work/pixel-resources.jpg" alt="Pixel Resources" loading="lazy" />' +
-            '<span><span class="case-study-card-title">Pixel Resources</span>' +
-            '<span class="case-study-card-category">Chemical Trading</span></span>' +
-            '</a>' +
-            '<a class="case-study-card" href="/case-studies/earth-ortho">' +
-            '<img src="/images/work/earth-ortho.jpg" alt="Earth Ortho" loading="lazy" />' +
-            '<span><span class="case-study-card-title">Earth Ortho</span>' +
-            '<span class="case-study-card-category">Medical Devices</span></span>' +
-            '</a>' +
-            '</div>',
-        },
-        items: [],
+        type: 'work',
+        data: { horizontalScroll: true, autoplay: true, internalLinks: true },
+        items: [
+          {
+            title: 'Sutro BeSpoke',
+            category: 'Bespoke Fashion',
+            image: '/images/work/sutro.jpg',
+            url: '/case-studies/sutro-bespoke',
+            desc: "A bespoke tailoring house's e-commerce site showcasing custom-made office, party, and ceremonial wear built on a legacy since 1947.",
+          },
+          {
+            title: 'Pixel Resources',
+            category: 'Chemical Trading',
+            image: '/images/work/pixel-resources.jpg',
+            url: '/case-studies/pixel-resources',
+            desc: 'A corporate site for a Gujarat-based chemical import/export company, presenting their supply to a global B2B audience.',
+          },
+          {
+            title: 'Earth Ortho',
+            category: 'Medical Devices',
+            image: '/images/work/earth-ortho.jpg',
+            url: '/case-studies/earth-ortho',
+            desc: 'A global-facing site for an orthopedic implant and surgical instrument manufacturer.',
+          },
+          {
+            title: 'Karolina Kobiałka',
+            category: 'Coaching & Personal Branding',
+            image: '/uploads/2026/09/karolina-kobialka-25d0af8c.jpg',
+            url: '/case-studies/karolina-kobialka',
+            desc: 'A personal branding site for a Polish manager and certified business coach.',
+          },
+          {
+            title: 'Uttam Interior',
+            category: 'Interior Design',
+            image: '/uploads/2026/09/uttam-interior-8cf1e99a.jpg',
+            url: '/case-studies/uttam-interior',
+            desc: 'A portfolio site for an Ankleshwar based interior design firm.',
+          },
+        ],
       },
       { type: 'cta', data: ctaDefault, items: [] },
     ],

@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { HiOutlineArrowRight, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import Reveal from '../Reveal.jsx'
@@ -11,24 +11,53 @@ import { useTrackWheelScroll, makeTrackScroller } from '../../content/useTrackWh
 // that), via responsive classes rather than a JS breakpoint check. Nesting a
 // horizontal snap-scroll track inside a vertically-scrolling page fought
 // touch scrolling on phones.
+//
+// `data.horizontalScroll` opts a non-stacked usage (e.g. the Case Studies
+// index) into the same one-line snap-scroll track + arrows as Home's stacked
+// Work section, independent of `data.viewAllHref`. `data.autoplay` adds a
+// paused-on-hover auto-advance timer reusing the arrow buttons' own scroll
+// function, which already wraps back to the start at the end of the track.
+// `data.internalLinks` swaps the card anchor for a router `Link` (in-app
+// navigation) instead of an external `target="_blank"` anchor.
 export default function WorkSection({ data = {}, items = [], stacked = false }) {
   const trackRef = useRef(null)
   const scroll = makeTrackScroller(trackRef)
   useTrackWheelScroll(trackRef, scroll)
 
+  const horizontal = stacked || data.horizontalScroll
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    if (!data.autoplay || paused || items.length === 0) return
+    const id = setInterval(() => scroll(1), 3500)
+    return () => clearInterval(id)
+  }, [data.autoplay, paused, items.length])
+
+  const CardLink = data.internalLinks ? Link : 'a'
+  const cardLinkProps = (project) =>
+    data.internalLinks
+      ? { to: project.url }
+      : { href: project.url, target: '_blank', rel: 'noopener noreferrer' }
+
   return (
-    <div className="container-px">
+    <div
+      className="container-px"
+      onMouseEnter={data.autoplay ? () => setPaused(true) : undefined}
+      onMouseLeave={data.autoplay ? () => setPaused(false) : undefined}
+    >
       <Reveal className="flex flex-wrap items-end justify-between gap-6">
         <div>
           {data.eyebrow && <span className="section-eyebrow">{data.eyebrow}</span>}
           <h2 className="max-w-xl font-display text-3xl text-[var(--color-text)] md:text-5xl">{data.heading}</h2>
         </div>
-        {data.viewAllHref && (
+        {(data.viewAllHref || horizontal) && (
           <div className="flex items-center gap-3">
-            <Link to={data.viewAllHref} className="btn-ghost">
-              {data.viewAllLabel} <HiOutlineArrowRight />
-            </Link>
-            {stacked && (
+            {data.viewAllHref && (
+              <Link to={data.viewAllHref} className="btn-ghost">
+                {data.viewAllLabel} <HiOutlineArrowRight />
+              </Link>
+            )}
+            {horizontal && (
               <>
                 <button
                   type="button"
@@ -52,7 +81,7 @@ export default function WorkSection({ data = {}, items = [], stacked = false }) 
         )}
       </Reveal>
 
-      {stacked ? (
+      {horizontal ? (
         <div
           ref={trackRef}
           className="no-scrollbar mt-16 grid grid-cols-1 gap-7 sm:grid-cols-2 md:mt-14 md:flex md:snap-x md:snap-mandatory md:gap-5 md:overflow-x-auto md:scroll-smooth md:pb-4"
@@ -64,10 +93,8 @@ export default function WorkSection({ data = {}, items = [], stacked = false }) 
               className="md:w-[65%] md:shrink-0 md:snap-start lg:w-[calc((100%-40px)/3)]"
             >
               <TiltCard>
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <CardLink
+                  {...cardLinkProps(project)}
                   className="relative block h-full overflow-hidden rounded-3xl border border-[var(--color-text)]/10"
                 >
                   <div className="h-full min-h-[220px] overflow-hidden">
@@ -82,7 +109,7 @@ export default function WorkSection({ data = {}, items = [], stacked = false }) 
                     <p className="font-display text-lg text-white">{project.title}</p>
                     <p className="text-sm text-white/60">{project.category}</p>
                   </div>
-                </a>
+                </CardLink>
               </TiltCard>
             </Reveal>
           ))}
