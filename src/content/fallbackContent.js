@@ -88,7 +88,7 @@ export const fallbackPages = {
         data: {
           style: 'orbit',
           badgeLabel: 'Available for new projects',
-          heading: 'We design & build\n**digital products**\nthat grow.',
+          heading: 'Your Trust,\n**Our Technology**.',
           subtext:
             'Astra Infotech is a development & design team that partners with founders and teams to turn ideas into fast, beautiful websites, apps, and brands.',
           primaryCtaLabel: 'Start a project',
@@ -226,7 +226,7 @@ export const fallbackPages = {
       {
         type: 'team',
         data: {},
-        items: [{ name: 'Kirtan Prajapati', role: 'CEO, Astra Infotech', photo: '/images/team/ceo.png' }],
+        items: [{ name: 'Kirtan Prajapati', role: 'CEO, Astra Infotech', photo: '/images/team/CEO-1.png' }],
       },
       { type: 'stats', data: { bordered: true }, items: stats },
       {
